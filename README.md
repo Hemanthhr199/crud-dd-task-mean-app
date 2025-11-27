@@ -35,7 +35,7 @@ crud-dd-task-mean-app/
 │
 └── README.md
 
-🚀 1. Local Development Setup (Optional)
+1. Local Development Setup (Optional)
 Backend (Express API)
 cd backend
 npm install
@@ -46,7 +46,7 @@ cd frontend
 npm install
 npm start
 
-🐳 2. Docker Setup
+2. Docker Setup
 Backend Dockerfile
 FROM node:18-alpine
 WORKDIR /app
@@ -66,7 +66,7 @@ COPY . .
 EXPOSE 8081
 CMD ["npm", "start", "--", "--host", "0.0.0.0", "--port", "8081"]
 
-📤 3. Build & Push Docker Images to Docker Hub
+3. Build & Push Docker Images to Docker Hub
 Login to Docker Hub
 docker login
 
@@ -78,7 +78,7 @@ Frontend
 docker build -t <dockerhub-username>/dd-frontend:latest frontend/
 docker push <dockerhub-username>/dd-frontend:latest
 
-⚙️ 4. Docker Compose Deployment (Local or VM)
+4. Docker Compose Deployment (Local or VM)
 
 The docker-compose.yml runs:
 
@@ -99,7 +99,7 @@ Frontend → http://<server-ip>:8081
 
 Backend → http://<server-ip>:8080/api/tutorials
 
-🖥️ 5. Deploy on Ubuntu VM (AWS EC2)
+5. Deploy on Ubuntu VM (AWS EC2)
 Install Docker & Compose
 sudo apt update
 sudo apt install -y docker.io docker-compose git
@@ -112,15 +112,12 @@ cd crud-dd-task-mean-app
 docker-compose pull
 docker-compose up -d
 
-🌐 6. Nginx Reverse Proxy (Port 80)
+6. Nginx Reverse Proxy (Port 80)
 Install Nginx
 sudo apt install -y nginx
 
 Create Reverse Proxy Config
 sudo nano /etc/nginx/sites-available/mean-app
-
-
-Paste:
 
 server {
     listen 80;
@@ -144,7 +141,7 @@ sudo systemctl reload nginx
 Access application:
 http://<your-vm-public-ip>/
 
-🔁 7. CI/CD Pipeline — GitHub Actions Automatic Deployment
+7. CI/CD Pipeline — GitHub Actions Automatic Deployment
 
 This project includes a complete CI/CD pipeline at:
 
